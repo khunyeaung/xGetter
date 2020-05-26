@@ -585,7 +585,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void vlare(View view) {
-        letGo("https://vlare.tv/v/V0egtPxz");
+        letGo("https://vlare.tv/v/AY0pWeU8");
     }
 
     public void streamWiki(View view) {
@@ -642,5 +642,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void fourshared(View view) {
         letGo("https://www.4shared.com/video/bLza9r9mea/45016068_2204489923208618_5254.html");
+    }
+
+    public void streamtape(View view) {
+        letGo("https://streamtape.com/v/GbmzAG9ZaVHlzK/%5BAsahi%5D_Fugou_Keiji_-_Balance_-_UNLIMITED_-_01_%5B1080p%5D.mp4");
+    }
+
+    public void vudeo(View view) {
+        letGo("https://vudeo.net/azhfxfpzq6yq.html");
     }
 }

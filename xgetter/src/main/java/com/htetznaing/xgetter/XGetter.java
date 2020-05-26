@@ -24,12 +24,14 @@ import com.htetznaing.xgetter.Core.Muvix;
 import com.htetznaing.xgetter.Core.Pstream;
 import com.htetznaing.xgetter.Core.SolidFiles;
 import com.htetznaing.xgetter.Core.StreamKIWI;
+import com.htetznaing.xgetter.Core.StreamTape;
 import com.htetznaing.xgetter.Core.UpToStream;
 import com.htetznaing.xgetter.Core.VideoBIN;
 import com.htetznaing.xgetter.Core.VideoBmX;
 import com.htetznaing.xgetter.Core.Vidoza;
 import com.htetznaing.xgetter.Core.VivoSX;
 import com.htetznaing.xgetter.Core.Vlare;
+import com.htetznaing.xgetter.Core.Vudeo;
 import com.htetznaing.xgetter.Model.XModel;
 import com.htetznaing.xgetter.Core.Twitter;
 import com.htetznaing.xgetter.Core.DailyMotion;
@@ -105,6 +107,8 @@ public class XGetter {
     private final String bitTube = "https?:\\/\\/(www\\.)?(bittube\\.video\\/videos)\\/(watch|embed)\\/.+";
     private final String videoBIN = "https?:\\/\\/(www\\.)?(videobin\\.co)\\/.+";
     private final String fourShared = "https?:\\/\\/(www\\.)?(4shared\\.com)\\/(video|web\\/embed)\\/.+";
+    private final String streamtape = "https?:\\/\\/(www\\.)?(streamtape\\.com)\\/(v)\\/.+";
+    private final String vudeo = "https?:\\/\\/(www\\.)?(vudeo\\.net)\\/.+";
 
     public XGetter(Context view) {
         this.context = view;
@@ -158,7 +162,7 @@ public class XGetter {
         init();
         boolean fb = false;
         boolean run = false;
-        boolean mfire = false, isOkRu = false,isVk=false,tw=false,gdrive=false,yt=false,solidf=false,isvidoza=false,isuptostream=false,isFanSubs=false,isMP4Uload=false,isSendVid = false,isFembed=false,isVeryStream = false,isFileRio=false,isDailyMotion=false,isMegaUp=false,isGoUnlimited = false,isCocoscope=false,isVidBM=false,isMuvix = false,isPStream=false,isVlareTV = false,isVivoSX=false,isStreamKiwi=false,isBitTube=false,isVideoBin=false,is4Shared;
+        boolean isVudeo = false, isStreamTape = false, mfire = false, isOkRu = false,isVk=false,tw=false,gdrive=false,yt=false,solidf=false,isvidoza=false,isuptostream=false,isFanSubs=false,isMP4Uload=false,isSendVid = false,isFembed=false,isVeryStream = false,isFileRio=false,isDailyMotion=false,isMegaUp=false,isGoUnlimited = false,isCocoscope=false,isVidBM=false,isMuvix = false,isPStream=false,isVlareTV = false,isVivoSX=false,isStreamKiwi=false,isBitTube=false,isVideoBin=false,is4Shared;
        if (check(mp4upload, url)) {
             run = true;
             isMP4Uload = true;
@@ -328,6 +332,14 @@ public class XGetter {
            //https://www.4shared.com/video/bLza9r9mea/45016068_2204489923208618_5254.html
            is4Shared = true;
            run = true;
+       }else if (check(streamtape,url)){
+           //https://streamtape.com/v/GbmzAG9ZaVHlzK/%5BAsahi%5D_Fugou_Keiji_-_Balance_-_UNLIMITED_-_01_%5B1080p%5D.mp4
+           isStreamTape = true;
+           run = true;
+       }else if (check(vudeo,url)){
+           //https://vudeo.net/azhfxfpzq6yq.html
+           isVudeo = true;
+           run = true;
        }
 
         if (run) {
@@ -389,6 +401,10 @@ public class XGetter {
                 VideoBIN.fetch(url,onComplete);
             } else if (isStreamKiwi){
                 StreamKIWI.get(context,url,onComplete);
+            } else if (isStreamTape){
+                StreamTape.fetch(url,onComplete);
+            } else if (isVudeo){
+                Vudeo.fetch(url,onComplete);
             }
         }else onComplete.onError();
     }

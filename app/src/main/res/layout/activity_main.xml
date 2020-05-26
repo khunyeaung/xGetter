@@ -233,6 +233,18 @@
                         android:text="BitTube"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
+                    <Button
+                        android:onClick="streamtape"
+                        android:text="StreamTape"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:onClick="vudeo"
+                        android:text="Vudeo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
             </LinearLayout>
